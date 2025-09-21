@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parrot Keep</title>
+  <link rel="icon" href="https://img.icons8.com/ios-filled/50/2E7D32/feather.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-green: #4CAF50;
+      --primary-dark: #2E7D32;
+      --accent-red: #D32F2F;
+      --bg-dark: #121212;
+      --card-dark: #1e1e1e;
+      --text-light: #e0e0e0;
+      --white: #fff;
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.6);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: var(--text-light);
+    }
+
+    /* Header */
+    .header {
+      background: var(--card-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-green);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo img {
+        height: 28px;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .auth-buttons a {
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .login {
+      color: var(--primary-green);
+      border: 1px solid var(--primary-green);
+      background: transparent;
+    }
+    .login:hover {
+      background: var(--primary-green);
+      color: var(--white);
+    }
+
+    .signup {
+      background: var(--primary-green);
+      color: var(--white);
+    }
+    .signup:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-green) 100%);
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem auto;
+      line-height: 1.6;
+    }
+
+    .hero .cta-btn {
+      display: inline-block;
+      background: var(--primary-green);
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.3s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      background: var(--primary-dark);
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding-top: 1rem;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--primary-green);
+    }
+
+    .note-card {
+      background: var(--card-dark);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #2e2e2e;
+    }
+
+    .note-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .note-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-green);
+    }
+
+    .note-content {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--card-dark);
+      color: #aaa;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #2e2e2e;
+    }
+
+    @media (max-width: 768px) {
+      .header { padding: 0.75rem 1rem; }
+      .logo { font-size: 1.2rem; }
+      .hero { padding: 4rem 1rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      main { padding: 2rem 1rem; }
+      .notes-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <img src="https://img.icons8.com/ios-filled/50/4CAF50/feather.png" alt="feather-icon"/>
+      Parrot Keep
+    </div>
+    <div class="auth-buttons">
+      <a href="login.jsp" class="login">Log in</a>
+      <a href="register.jsp" class="signup">Sign up</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Parrot Keep</h1>
+    <p>Your personal space to capture ideas, reminders, and inspirations.
+       Stay organized with simplicity and beauty.</p>
+    <a href="register.jsp" class="cta-btn">Start Now</a>
+  </section>
+
+  <main>
+    <h2 class="section-title">A Sample of Your Notes</h2>
+    <div class="notes-grid">
+      <div class="note-card">
+        <div class="note-title">Shopping List</div>
+        <div class="note-content">Milk, Eggs, Bread, Butter</div>
+      </div>
+      <div class="note-card">
+        <div class="note-title">Project Ideas</div>
+        <div class="note-content">Plan out new UI designs, research modern web frameworks, and create a demo.</div>
+      </div>
+      <div class="note-card">
+        <div class="note-title">Daily Reminder</div>
+        <div class="note-content">Remember to call the doctor to confirm my appointment at 5 PM tomorrow.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Parrot Keep | All Rights Reserved.
+  </footer>
+
+</body>
+</html>
