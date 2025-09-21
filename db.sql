@@ -1,0 +1,32 @@
+CREATE DATABASE Keep;
+
+USE Keep;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL
+);
+
+USE Keep;
+
+CREATE TABLE notes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE notes
+ADD COLUMN is_public TINYINT(1) DEFAULT 0; 
+-- 0 = private, 1 = public
+ALTER TABLE notes
+ADD COLUMN public_id VARCHAR(50) UNIQUE;
+
+
+
+
+SELECT * FROM users;
+
